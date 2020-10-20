@@ -7,6 +7,7 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
+import com.example.dattingfirebase.Activity.MainActivity;
 import com.example.dattingfirebase.Activity.ProfileActivity.EditAccountActivity;
 import com.example.dattingfirebase.Activity.ProfileActivity.MyInfomationActivity;
 import com.example.dattingfirebase.R;
@@ -30,6 +32,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 
 import static android.app.Activity.RESULT_OK;
@@ -46,6 +49,7 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
     //login google
     private GoogleApiClient googleApiClient;
     private GoogleSignInOptions gso;
+    Button logoutBtn;
 
 
     private com.example.dattingfirebase.ui.profile.ProfileViewModel profileViewModel;
@@ -64,15 +68,16 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
         name = root.findViewById(R.id.name_profile);
         age = root.findViewById(R.id.age_profile);
         setting_btn = root.findViewById(R.id.setting_btn_profile);
+        logoutBtn= root.findViewById(R.id.logoutBtn);
         Glide.with(getActivity())
                 .load(R.drawable.profile2)
                 .into(avatar);
-        name.setText("Nam Anh");
-        age.setText("06");
+        name.setText("User");
+        age.setText("20");
         //=================set action====================================
         name.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {//edit name
                 Intent intent = new Intent(getActivity(), EditAccountActivity.class);
                 final String acc_name = (String) name.getText();
                 intent.putExtra("name", acc_name);
@@ -110,10 +115,26 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
                 .requestEmail()
                 .build();
 
-        googleApiClient=new GoogleApiClient.Builder(getContext())
-                .enableAutoManage((FragmentActivity) getContext(),this)
+        googleApiClient=new GoogleApiClient.Builder(getActivity())
+                .enableAutoManage(getActivity(),this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
+                        new ResultCallback<Status>() {
+                            @Override
+                            public void onResult(Status status) {
+                                if (status.isSuccess()){
+                                    gotoMainActivity();
+                                }else{
+                                    Toast.makeText(getContext(),"Session not close", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+            }
+        });
 
     }
     @Override
@@ -154,12 +175,28 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
             GoogleSignInAccount account=result.getSignInAccount();
             name.setText(account.getDisplayName());
             try{
-                Glide.with(getContext()).load(account.getPhotoUrl()).into(avatar);
+                Glide.with(getActivity()).load(account.getPhotoUrl()).into(avatar);
             }catch (NullPointerException e){
-                Toast.makeText(getContext(),"image not found",Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"image not found",Toast.LENGTH_LONG).show();
             }
-
         }
+    }
+    private void gotoMainActivity(){
+        Intent intent=new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
+        finishActivity();
+    }
+    //finish fragment=======================================================
+    private void finishActivity() {
+        if(getActivity() != null) {
+            getActivity().finish();
+        }
+    }
+    @Override
+    public void onPause() {//fix error: Already managing a GoogleApiClient with id 0
+        super.onPause();
+        googleApiClient.stopAutoManage(getActivity());
+        googleApiClient.disconnect();
     }
 
     @Override

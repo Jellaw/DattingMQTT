@@ -189,4 +189,24 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/logoutBtn"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button_google"
+        android:backgroundTint="#140E0E0E"
+        android:drawableStart="@drawable/ic_google_icon"
+        android:drawablePadding="10dp"
+        android:paddingStart="50dp"
+        android:paddingEnd="70dp"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:textColor="@color/com_facebook_button_send_background_color"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_dong2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
