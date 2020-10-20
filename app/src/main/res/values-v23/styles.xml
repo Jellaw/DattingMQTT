@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme1" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#D5E12565</item>
+        <item name="colorPrimaryDark">#C9E91E63</item>
+        <item name="colorAccent">#DFF82E73</item>
+
+        <!--statusbar transparent-->
+        <item name="android:statusBarColor">#FFFFFF</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <!--bo goc bottomDialog-->
+    <style name="BottomSheetTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle"> @style/hereFor</item>
+    </style>
+    <style name="hereFor" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background" >#00FFFFFF</item>
+    </style>
+<!--=========================================================================-->
+    <style name="AppTheme2" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">#E96429CC</item>
+    <item name="colorPrimaryDark">#E96429CC</item>
+    <item name="colorAccent">#E96429CC</item>
+    </style>
+    <style name="AppTheme3" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#00a691</item>
+        <item name="colorPrimaryDark">#00a691</item>
+        <item name="colorAccent">#00a691</item>
+    </style>
+</resources>
