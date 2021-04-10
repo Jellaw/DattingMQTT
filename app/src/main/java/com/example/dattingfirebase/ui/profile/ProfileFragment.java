@@ -15,11 +15,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
-import com.example.dattingfirebase.Activity.MainActivity;
+import com.example.dattingfirebase.Activity.SignUpActivity;
 import com.example.dattingfirebase.Activity.ProfileActivity.EditAccountActivity;
 import com.example.dattingfirebase.Activity.ProfileActivity.MyInfomationActivity;
 import com.example.dattingfirebase.R;
@@ -183,7 +182,7 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
         }
     }
     private void gotoMainActivity(){
-        Intent intent=new Intent(getActivity(), MainActivity.class);
+        Intent intent=new Intent(getActivity(), SignUpActivity.class);
         startActivity(intent);
         finishActivity();
     }

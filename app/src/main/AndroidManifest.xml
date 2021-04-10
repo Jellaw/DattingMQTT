@@ -41,10 +41,10 @@
             android:name="com.example.dattingfirebase.ChattingActivity"
             android:theme="@style/AppTheme1" />
         <activity
-            android:name="com.example.dattingfirebase.Activity.SignInActivity"
+            android:name="com.example.dattingfirebase.Activity.MainActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme1" />
-        <activity android:name="com.example.dattingfirebase.Activity.MainActivity">
+        <activity android:name="com.example.dattingfirebase.Activity.SignUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
