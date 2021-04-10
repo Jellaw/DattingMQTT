@@ -10,7 +10,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.dattingfirebase.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity  {
+public class SignInActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

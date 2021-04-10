@@ -41,7 +41,7 @@
             android:name="com.example.dattingfirebase.ChattingActivity"
             android:theme="@style/AppTheme1" />
         <activity
-            android:name="com.example.dattingfirebase.Activity.HomeActivity"
+            android:name="com.example.dattingfirebase.Activity.SignInActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme1" />
         <activity android:name="com.example.dattingfirebase.Activity.MainActivity">

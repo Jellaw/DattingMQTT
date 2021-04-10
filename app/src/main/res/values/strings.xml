@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DattingFirebase</string>
+    <string name="app_name">Datting</string>
     <string name="facebook_app_id">242238417038850</string>
     <string name="fb_login_protocol_scheme">fb242238417038850</string>
     <string name="text_btnLoginFacebook">Continue with Facebook</string>
@@ -64,5 +64,6 @@
     <string name="Drink3">Không uống rượu bia</string>
     <string name="Drink4">Tôi ghét rượu bia</string>
     <string name="Drink5">Không hiển thị</string>
+    <string name="friend_online">Không có người nào đang hoạt động.</string>
 
 </resources>

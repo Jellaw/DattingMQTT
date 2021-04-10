@@ -73,7 +73,7 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
                 .load(R.drawable.profile2)
                 .into(avatar);
         name.setText("User");
-        age.setText("20");
+        age.setText("age");
         //=================set action====================================
         name.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,6 +174,7 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
         if(result.isSuccess()){
             GoogleSignInAccount account=result.getSignInAccount();
             name.setText(account.getDisplayName());
+            age.setText("20");
             try{
                 Glide.with(getActivity()).load(account.getPhotoUrl()).into(avatar);
             }catch (NullPointerException e){

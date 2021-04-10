@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
                 startActivity(intent);
                 finish();
 
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     private void gotoProfile(){
-        Intent intent=new Intent(MainActivity.this, HomeActivity.class);
+        Intent intent=new Intent(MainActivity.this, SignInActivity.class);
         startActivity(intent);
         finish();
     }
