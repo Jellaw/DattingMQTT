@@ -93,7 +93,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
                 if(k%2==0){
                     holder.name.setVisibility(View.VISIBLE);
                     holder.city_sex.setVisibility(View.VISIBLE);
-                    //=============set image in cardview when click=============================================
+                    //=============set scroll image in cardview when click=============================================
                     CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) holder.appBarLayout.getLayoutParams();
                     AppBarLayout.Behavior behavior = (AppBarLayout.Behavior) params.getBehavior();
                     behavior.setDragCallback(new AppBarLayout.Behavior.DragCallback() {
